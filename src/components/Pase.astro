@@ -1,0 +1,223 @@
+<!-- ═══════════════════════════════════════════════════════════ --><!-- 🎟️ SECCIÓN: PASE DE ENTRADA                                --><!-- ═══════════════════════════════════════════════════════════ -->
+<section class="relative w-full pt-20 pb-12 sm:py-20 md:py-24 lg:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center">
+            <div class="relative w-[300px]" id="card-pase">
+                <!-- BOTÓN DECORATIVO SUPERIOR -->
+                <div
+                    class="absolute z-20"
+                    style="top: -30px; left: 50%; transform: translateX(-50%);"
+                >
+                    <div class="w-16 h-16" id="boton-decorativo-pase">
+                        <img
+                            src="/imagenes/boton.png"
+                            alt="Decoración"
+                            class="w-full h-full object-contain"
+                        />
+                    </div>
+                </div>
+
+                <!-- CARD PRINCIPAL -->
+                <div
+                    class="relative rounded-[40px] shadow-xl overflow-hidden"
+                    id="card-principal-pase"
+                >
+                    <!-- IMAGEN DE FONDO -->
+                    <img
+                        src="/imagenes/fondoplomo.png"
+                        alt="Fondo pase"
+                        class="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div class="absolute inset-0 bg-white/30"></div>
+
+                    <!-- Contenido -->
+                    <div
+                        class="relative px-6 py-12 z-10 flex flex-col items-center gap-5"
+                    >
+                        <!-- LÍNEA DECORATIVA SUPERIOR -->
+                        <div
+                            class="flex items-center gap-3 w-full"
+                            id="linea-superior-pase"
+                        >
+                            <div class="flex-1 h-px bg-[#7B1E3A]/30"></div>
+                            <div
+                                class="w-1.5 h-1.5 rounded-full bg-[#7B1E3A]/50"
+                            >
+                            </div>
+                            <div class="flex-1 h-px bg-[#7B1E3A]/30"></div>
+                        </div>
+
+                        <!-- TEXTO SUPERIOR -->
+                        <div class="text-center" id="texto-superior-pase">
+                            <p
+                                class="font-crimson text-xs uppercase tracking-[0.35em] text-[#7B1E3A]/70"
+                            >
+                                con mucho cariño
+                            </p>
+                        </div>
+
+                        <!-- IMAGEN PASE -->
+                        <div id="imagen-pase">
+                            <img
+                                src="/imagenes/pase.png"
+                                alt="Pase de entrada"
+                                class="w-20 h-20 object-contain icono-pase"
+                            />
+                        </div>
+
+                        <!-- SEPARADOR ORNAMENTAL -->
+                        <div
+                            class="flex items-center gap-2"
+                            id="separador-pase"
+                        >
+                            <div class="w-6 h-px bg-[#7B1E3A]/40"></div>
+                            <svg
+                                class="w-4 h-4 text-[#B8960C]"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                                ></path>
+                            </svg>
+                            <div class="w-6 h-px bg-[#7B1E3A]/40"></div>
+                        </div>
+
+                        <!-- TEXTO ELEGANTE -->
+                        <div class="text-center" id="texto-pase">
+                            <p
+                                class="font-crimson text-xs uppercase tracking-[0.3em] text-[#7B1E3A]/70 mb-2"
+                            >
+                                Hemos reservado
+                            </p>
+                            <h2
+                                class="font-great-vibes text-[2.6rem] text-[#B8960C] leading-tight mb-2"
+                            >
+                                lugar para 1 persona
+                            </h2>
+                            <p
+                                class="font-cormorant-sc text-sm text-[#7B1E3A] tracking-[0.3em] uppercase"
+                            >
+                                en su honor
+                            </p>
+                        </div>
+
+                        <!-- LÍNEA DECORATIVA INFERIOR -->
+                        <div
+                            class="flex items-center gap-3 w-full"
+                            id="linea-inferior-pase"
+                        >
+                            <div class="flex-1 h-px bg-[#7B1E3A]/30"></div>
+                            <div
+                                class="w-1.5 h-1.5 rounded-full bg-[#7B1E3A]/50"
+                            >
+                            </div>
+                            <div class="flex-1 h-px bg-[#7B1E3A]/30"></div>
+                        </div>
+
+                        <!-- FECHA -->
+                        <div class="text-center" id="fecha-pase">
+                            <p
+                                class="font-crimson text-xs uppercase tracking-[0.3em] text-[#B8960C]"
+                            >
+                                Sábado · 20 de Junio · 2026
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- 🎬 ANIMACIONES CON GSAP                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (typeof window !== "undefined") {
+        document.addEventListener("DOMContentLoaded", () => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#card-pase",
+                    start: "top 80%",
+                    toggleActions: "play none none reset",
+                },
+            });
+
+            tl.fromTo(
+                "#boton-decorativo-pase",
+                { opacity: 0, scale: 0, rotation: -180 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    rotation: 0,
+                    duration: 1,
+                    ease: "back.out(1.7)",
+                },
+                0,
+            )
+                .fromTo(
+                    "#card-principal-pase",
+                    { opacity: 0, y: 50, scale: 0.95 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 1,
+                        ease: "power3.out",
+                    },
+                    0,
+                )
+                .fromTo(
+                    "#linea-superior-pase, #texto-superior-pase",
+                    { opacity: 0, y: -10 },
+                    { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+                    0.3,
+                )
+                .fromTo(
+                    "#imagen-pase",
+                    { opacity: 0, scale: 0.85 },
+                    { opacity: 1, scale: 1, duration: 0.9, ease: "power2.out" },
+                    0.4,
+                )
+                .fromTo(
+                    "#separador-pase",
+                    { opacity: 0, scaleX: 0 },
+                    {
+                        opacity: 1,
+                        scaleX: 1,
+                        duration: 0.6,
+                        ease: "power2.out",
+                    },
+                    0.65,
+                )
+                .fromTo(
+                    "#texto-pase",
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+                    0.75,
+                )
+                .fromTo(
+                    "#linea-inferior-pase, #fecha-pase",
+                    { opacity: 0, y: 10 },
+                    { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+                    0.95,
+                );
+        });
+    }
+</script>
+
+<style>
+    .font-cormorant-sc {
+        font-family: "Cormorant SC", serif;
+    }
+    .icono-pase {
+        filter: brightness(0) saturate(100%) invert(13%) sepia(82%)
+            saturate(1094%) hue-rotate(309deg) brightness(72%) contrast(107%);
+    }
+</style>
